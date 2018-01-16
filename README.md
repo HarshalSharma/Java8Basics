@@ -1,0 +1,1 @@
+Java 8 Functional Programming Training Workspace.
