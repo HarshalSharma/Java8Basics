@@ -24,6 +24,7 @@ public class Tp3{
 
     public static void main(String args[]){
         instance.doWork();
+        instance.doOtherWork();
     }
 
 
@@ -41,6 +42,14 @@ public class Tp3{
             }
         });
 
+    }
+
+    public void doOtherWork(){
+        prices.forEach(x->{
+            if(this == instance){
+                System.out.println("Within the lambda body this refers to the this of the enclosing object.");
+            }
+        });
     }
 
 }
