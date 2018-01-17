@@ -13,45 +13,34 @@
     Here we will convert a list of numbers to the apples of there respective prices.
 */
 import java.util.Arrays;
+import java.util.function.Consumer;
+import java.util.List;
 
 public class Tp3{
 
     private static final Tp3 instance = new Tp3();
     private List<Integer> prices = Arrays.asList(1,2,3,4,5,6);
-    private int rate = 1;
+    private int rate = 2;
 
     public static void main(String args[]){
         instance.doWork();
     }
 
 
-    public static void doWork(){
+    public void doWork(){
 
-        List<Apple> apples = new ArrayList<Apple>();
+        prices.forEach(new Consumer<Integer>(){
 
-        prices.forEach(x -> new Apple(){
-            int value = x * this.rate;
-            System.out.println("Anonymous value:" + value);
+            int customValue = 1;
+
+            @Override
+            public void accept(Integer x){                
+                int value = x * Tp3.this.rate + this.customValue;
+                System.out.println("x is " + x);
+                System.out.println("Anonymous value:" + value);
+            }
         });
 
     }
-
-
-
-    private class Apple{
-
-        public int price;
-
-        @Override
-        public String toString(){
-            return "[price:"+price+"]";
-        }
-
-    }
-
-
-
-
-
 
 }
